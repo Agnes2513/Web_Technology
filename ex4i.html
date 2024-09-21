@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX 4i</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 50px;
+        }
+        #container {
+            display: flex;
+            align-items: center; 
+        }
+        #t {
+            margin-left: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00796b;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 400px;
+            padding: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        #htext {
+            font-size: 20px;
+            cursor: pointer;
+            margin: 20px 0; 
+        }
+        .con {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto; 
+            overflow: hidden;
+        }
+        .img {
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .te {
+            position: absolute;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            color: rgb(11, 10, 10);
+            text-align: center;
+            opacity: 0; 
+            transition: opacity 0.3s ease, top 0.3s ease;
+        }
+        .con:hover .img {
+            transform: translateY(30px);
+        }
+        .con:hover .te {
+            top: 15px;
+            opacity: 1;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let backgroundSet = false;
+
+            document.body.addEventListener('click', function() {
+                if (!backgroundSet) {
+                    document.body.style.backgroundColor = 'lightpink'; 
+                    backgroundSet = true;
+                }
+            });
+
+            let interval;
+            document.getElementById('time').addEventListener('click', function() {
+                clearInterval(interval);
+                updateTime();
+                interval = setInterval(updateTime, 1000);
+            });
+
+            function updateTime() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString();
+                document.getElementById('t').textContent = timeString;
+            }
+
+            window.validateForm = function(event) {
+                event.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+
+                const errorMessages = document.querySelectorAll('.error');
+                errorMessages.forEach(msg => msg.remove());
+
+                let isValid = true;
+
+                if (!name) {
+                    alert('Name is required');
+                    document.getElementById('name').focus(); 
+                    isValid = false;
+                } else if (!email) {
+                    alert('Email is required');
+                    document.getElementById('email').focus();
+                    isValid = false;        
+                } else if (!phone) {
+                    alert('Phone number is required');
+                    document.getElementById('phone').focus();
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    alert('Form submitted successfully!'); 
+                }
+            };
+
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (!this.value.trim()) {
+                        alert(`${this.previousElementSibling.textContent} is required!`);
+                    }
+                });
+            });
+
+            const hoverText = document.getElementById('htext');
+
+            hoverText.addEventListener('mouseenter', () => {
+                hoverText.textContent = 'Congrats on Registration!';
+            });
+
+            hoverText.addEventListener('mouseleave', () => {
+                hoverText.textContent = 'Let’s work together!';
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <button id="time">Show time</button>
+        <div id="t"></div>
+    </div>
+
+    <form id="myForm" onsubmit="validateForm(event)">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+        </div>
+    
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="htext">Bring your cursor in</div>
+
+    <div class="con">
+        <img src="pre.png" alt="pic" class="img">
+        <div class="te">Join hands together</div>
+    </div>
+
+</body>
+</html>
