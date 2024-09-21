@@ -5,123 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer Registration Form</title>
     <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #00796b;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #005f57;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+    </style>
     <script>
-      function validateForm() {
-          const name = document.getElementById('name').value.trim();
-          const email = document.getElementById('email').value.trim();
-          const phone = document.getElementById('phone').value.trim();
-          const dob = document.getElementById('dob').value;
-          const gender = document.querySelector('input[name="gender"]:checked');
-          const serviceYes = document.querySelector('input[name="service"][value="yes"]').checked;
-          const serviceNo = document.querySelector('input[name="service"][value="no"]').checked;
-          const skills = document.getElementById('skills').value.trim();
-          const interest = document.getElementById('interest').value;
-          const aadhar = document.getElementById('aadhar').value.trim();
-          const proof = document.getElementById('proof').value;
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const dob = document.getElementById('dob').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const serviceYes = document.querySelector('input[name="service"][value="yes"]').checked;
+            const serviceNo = document.querySelector('input[name="service"][value="no"]').checked;
+            const skills = document.getElementById('skills').value.trim();
+            const interest = document.getElementById('interest').value;
+            const aadhar = document.getElementById('aadhar').value.trim();
+            const proof = document.getElementById('proof').value;
+            const city = document.getElementById('city').value.trim();
+            const state = document.getElementById('state').value;
+            const zip = document.getElementById('zip').value.trim();
 
-          // New fields
-          const city = document.getElementById('city').value.trim();
-          const state = document.getElementById('state').value;
-          const zip = document.getElementById('zip').value.trim();
-
-          // Name validation
-          if (name === '') {
-              alert('Name is required.');
-              return false;
-          }
-
-          // Email validation
-          const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-          if (email === '') {
-              alert('Email is required.');
-              return false;
-          } else if (!email.match(emailPattern)) {
-              alert('Please enter a valid email address.');
-              return false;
-          }
-
-          // Phone number validation
-          const phonePattern = /^[0-9]{10}$/;
-          if (phone === '') {
-              alert('Phone number is required.');
-              return false;
-          } else if (!phone.match(phonePattern)) {
-              alert('Please enter a valid 10-digit phone number.');
-              return false;
-          }
-
-          // Date of birth validation
-          if (dob === '') {
-              alert('Date of Birth is required.');
-              return false;
-          }
-
-          // Gender validation
-          if (!gender) {
-              alert('Please select your gender.');
-              return false;
-          }
-
-          // Service validation
-          if (!serviceYes && !serviceNo) {
-              alert('Please indicate if you have already serviced.');
-              return false;
-          }
-
-          // Skills validation (if 'Yes' is selected)
-          if (serviceYes && skills === '') {
-              alert('Please describe your previous service experience.');
-              return false;
-          }
-
-          // Area of interest validation
-          if (interest === '') {
-              alert('Please select your area of interest.');
-              return false;
-          }
-
-          // Aadhar number validation
-          const aadharPattern = /^[0-9]{12}$/;
-          if (aadhar === '') {
-              alert('Aadhar number is required.');
-              return false;
-          } else if (!aadhar.match(aadharPattern)) {
-              alert('Please enter a valid 12-digit Aadhar number.');
-              return false;
-          }
-
-          // ID proof validation
-          if (proof === '') {
-              alert('Please upload your ID proof.');
-              return false;
-          }
-
-          // City validation
-          if (city === '') {
-              alert('City is required.');
-              return false;
-          }
-
-          // State validation
-          if (state === '') {
-              alert('Please select a state.');
-              return false;
-          }
-
-          // Zip code validation
-          const zipPattern = /^[0-9]{5}$/;
-          if (zip === '') {
-              alert('Zip code is required.');
-              return false;
-          } else if (!zip.match(zipPattern)) {
-              alert('Please enter a valid 5-digit zip code.');
-              return false;
-          }
-
-          // If all validations pass
-          alert('Form submitted successfully!');
-          return true;
-      }
+            if (name === '') {
+                alert('Name is required.');
+                return false;
+            }
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email === '') {
+                alert('Email is required.');
+                return false;
+            } else if (!email.match(emailPattern)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+            const phonePattern = /^[0-9]{10}$/;
+            if (phone === '') {
+                alert('Phone number is required.');
+                return false;
+            } else if (!phone.match(phonePattern)) {
+                alert('Please enter a valid 10-digit phone number.');
+                return false;
+            }
+            if (dob === '') {
+                alert('Date of Birth is required.');
+                return false;
+            }
+            if (!gender) {
+                alert('Please select your gender.');
+                return false;
+            }
+            if (!serviceYes && !serviceNo) {
+                alert('Please indicate if you have already serviced.');
+                return false;
+            }
+            if (serviceYes && skills === '') {
+                alert('Please describe your previous service experience.');
+                return false;
+            }
+            if (interest === '') {
+                alert('Please select your area of interest.');
+                return false;
+            }
+            const aadharPattern = /^[0-9]{12}$/;
+            if (aadhar === '') {
+                alert('Aadhar number is required.');
+                return false;
+            } else if (!aadhar.match(aadharPattern)) {
+                alert('Please enter a valid 12-digit Aadhar number.');
+                return false;
+            }
+            if (proof === '') {
+                alert('Please upload your ID proof.');
+                return false;
+            }
+            if (city === '') {
+                alert('City is required.');
+                return false;
+            }
+            if (state === '') {
+                alert('Please select a state.');
+                return false;
+            }
+            const zipPattern = /^[0-9]{5}$/;
+            if (zip === '') {
+                alert('Zip code is required.');
+                return false;
+            } else if (!zip.match(zipPattern)) {
+                alert('Please enter a valid 5-digit zip code.');
+                return false;
+            }
+            alert('Form submitted successfully!');
+            return true;
+        }
     </script>
 </head>
 <body>
@@ -208,7 +246,12 @@
         <input type="text" id="zip" name="zip" placeholder="Enter your zip code" maxlength="5">
     </div>
 
-    <button type="submit">Submit</button>
+    <div class="button-container">
+        <button type="submit">Submit</button>
+        <a href="ex4i.html" style="text-decoration: none;">
+            <button type="button">Click to View</button>
+        </a>
+    </div>
 </form>
 
 </body>
