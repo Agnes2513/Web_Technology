@@ -7,30 +7,32 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
   <style>
     em {
-      color: gray;
+      color: #A3A3A3; /* grey for emphasized text */
     }
     body {
       font-family: 'Times New Roman', Times, serif;
       margin: 0;
-      background-color: #f4f4f4;
+      background-color: #2D2D2D; /* dark background color */
+      color: #EAEAEA; /* light grey text */
     }
     header {
       font-size: larger;
     }
     h3 {
       text-align: center;
-      color: #333;
+      color: #FF6600; /* orange color */
       margin: 20px 0;
     }
     p {
       text-align: center;
-      color: #555;
+      color: #CCCCCC; /* light grey text */
       max-width: 800px;
       margin: 0 auto 20px;
     }
     .card {
-      position: relative; /* Enable absolute positioning within the card */
-      overflow: hidden; /* Ensure content does not overflow */
+      position: relative;
+      overflow: hidden;
+      background-color: #333333; /* grey background for cards */
     }
     .card img {
       width: 100%;
@@ -42,18 +44,19 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 16px; /* Adjust padding as needed */
-      background: rgba(255, 255, 255, 0.8); /* Optional: background with transparency */
-      border-radius: 0 0 8px 8px; /* Round the bottom corners only */
-      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow to make content stand out */
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.6); /* dark background for card content */
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     }
     .card-content h4 {
       margin: 0;
+      color: #FF6600; /* orange color */
     }
     .card-content a {
       display: inline-block;
       margin-top: 8px;
-      background-color: #38a169; /* Tailwind green-500 */
+      background-color: #FF6600; /* orange button */
       color: white;
       padding: 8px 16px;
       border-radius: 4px;
@@ -61,49 +64,31 @@
       text-decoration: none;
     }
     .card-content a:hover {
-      background-color: #2f855a; /* Tailwind green-700 */
+      background-color: #FF4500; /* darker orange on hover */
     }
   </style>
 </head>
-<body class="bg-gray-100">
-  <!-- Navigation Bar -->
-  <nav class="bg-green-500 text-white">
+<body class="bg-gray-900">
+  <nav class="bg-gray-800 text-white">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <input type="checkbox" class="nav-toggle hidden" id="menu-toggle">
-          <label for="menu-toggle" class="text-white hover:text-gray-200 focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </label>
-        </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0">
             <a href="#" class="text-white text-2xl font-bold">Disaster Management</a>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <a href="index2.html" class="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-              <a href="ex2.html" class="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-              <a href="#" class="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
-              <a href="ex3.html" class="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+              <a href="index2.html" class="text-gray-300 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a href="ex2.html" class="text-gray-300 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+              <a href="#" class="text-gray-300 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
+              <a href="ex3.html" class="text-gray-300 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="nav-content sm:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#" class="text-gray-300 hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-        <a href="#" class="text-gray-300 hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-        <a href="#" class="text-gray-300 hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
-        <a href="#" class="text-gray-300 hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-      </div>
-    </div>
   </nav>
 
-  <!-- Main Content -->
   <div class="px-4 py-8">
     <h3>About</h3>
     <p>
@@ -113,33 +98,47 @@
     </p>
 
     <!-- Card Container -->
-    <div class="flex flex-wrap justify-center gap-4">
-      <div class="card bg-white border border-gray-200 rounded-lg shadow-md p-4 flex flex-col max-w-xs h-80">
-        <img src="mst.png" alt="Most Affected Places" class="flex-shrink-0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="card border border-gray-600 rounded-lg shadow-md p-4 h-80">
+        <img src="mst.png" alt="Most Affected Places">
         <div class="card-content">
-          <h4 class="text-lg font-semibold">Most Affected Places (using image map)</h4>
+          <h4 class="text-lg font-semibold">Most Affected Places (using image map-html)</h4>
           <a href="ex1.html">View</a>
         </div>
       </div>
-      <div class="card bg-white border border-gray-200 rounded-lg shadow-md p-4 flex flex-col max-w-xs h-80">
-        <img src="pre.png" alt="Precautions" class="flex-shrink-0">
+      <div class="card border border-gray-600 rounded-lg shadow-md p-4 h-80">
+        <img src="pre.png" alt="Precautions">
         <div class="card-content">
           <h4 class="text-lg font-semibold">Precautions (using CSS)</h4>
           <a href="ex2.html">Learn More</a>
         </div>
       </div>
-      <div class="card bg-white border border-gray-200 rounded-lg shadow-md p-4 flex flex-col max-w-xs h-80">
-        <img src="emg.jpg" alt="Emergency Contacts" class="flex-shrink-0">
+      <div class="card border border-gray-600 rounded-lg shadow-md p-4 h-80">
+        <img src="emg.jpg" alt="Emergency Contacts">
         <div class="card-content">
           <h4 class="text-lg font-semibold">Emergency Contacts (using bootstrap)</h4>
           <a href="ex3.html">Learn More</a>
         </div>
       </div>
-      <div class="card bg-white border border-gray-200 rounded-lg shadow-md p-4 flex flex-col max-w-xs h-80">
-        <img src="vol.png" alt="Volunteer" class="flex-shrink-0">
+      <div class="card border border-gray-600 rounded-lg shadow-md p-4 h-80">
+        <img src="vol.png" alt="Volunteer">
         <div class="card-content">
-          <h4 class="text-lg font-semibold">Volunteer (using forms validation)</h4>
+          <h4 class="text-lg font-semibold">Volunteer (using forms validation-javascript)</h4>
           <a href="ex4.html">Sign Up</a>
+        </div>
+      </div>
+      <div class="card border border-gray-600 rounded-lg shadow-md p-4 h-80">
+        <img src="aid.png" alt="Aid Programs">
+        <div class="card-content">
+          <h4 class="text-lg font-semibold">Servlets</h4>
+          <a href="C:\xampp\tomcat\webapps\4008\ex5.html">Details</a>
+        </div>
+      </div>
+      <div class="card border border-gray-600 rounded-lg shadow-md p-4 h-80">
+        <img src="training.png" alt="Training Sessions">
+        <div class="card-content">
+          <h4 class="text-lg font-semibold">php and xml</h4>
+          <a href="C:\xampp\htdocs\agnes\ex6.html">Join Now</a>
         </div>
       </div>
     </div>
