@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload XAM/XML File</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1f1e1e; /* Light grey */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333; /* Dark grey */
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: #1c1c1c; /* Black */
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        /* Form Title */
+        .form-container h1 {
+            color: #f97316; /* Orange */
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Form Labels */
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ddd; /* Light grey */
+        }
+
+        /* File Input */
+        input[type="file"] {
+            padding: 10px;
+            background-color: #333; /* Dark grey */
+            color: #ddd; /* Light grey */
+            border: 1px solid #f97316; /* Orange border */
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* Submit Button */
+        button {
+            padding: 10px 20px;
+            background-color: #f97316; /* Orange */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d26014; /* Darker Orange */
+        }
+
+        /* Footer Text */
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa; /* Light grey */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Upload Your XAM/XML File</h1>
+        <form action="extract_xam.php" method="post" enctype="multipart/form-data">
+            <label for="file">Choose a file:</label>
+            <input type="file" name="file" id="file" accept=".xml, .xam">
+            <button type="submit">Upload and Extract</button>
+        </form>
+        <div class="footer">
+            <p>Supported file types: .xml, .xam</p>
+        </div>
+    </div>
+</body>
+</html>
