@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Management Help Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Request Help</h1>
+        <form action="HelpRequestServlet1" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" required>
+
+            <label for="location">Current Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="helpType">Type of Help Needed:</label>
+            <select id="helpType" name="helpType" required>
+                <option value="medical">Medical Assistance</option>
+                <option value="food">Food and Water</option>
+                <option value="shelter">Shelter</option>
+                <option value="rescue">Rescue</option>
+            </select>
+
+            <label for="details">Additional Details:</label>
+            <textarea id="details" name="details" rows="4" placeholder="Provide additional information if necessary."></textarea>
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </div>
+</body>
+</html>

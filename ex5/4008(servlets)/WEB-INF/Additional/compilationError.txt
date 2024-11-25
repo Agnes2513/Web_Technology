@@ -1,0 +1,4 @@
+ javac --release 8 .\HelloWorld.java
+
+https://github.com/redhat-developer/vscode-java/issues/200
+

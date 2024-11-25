@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Management Help Request</title>
+    <style>
+        /* Reset and global styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Black background */
+            color: #ffffff; /* White text for contrast */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Centered container */
+        .container {
+            background-color: #2c2c2c; /* Dark grey for container */
+            border: 3px solid #f57c00; /* Bold orange border */
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+            text-align: center;
+        }
+
+        /* Header styles */
+        h1 {
+            color: #f57c00; /* Bright orange for header */
+            margin-bottom: 20px;
+        }
+
+        /* Label and input styling */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #f2f2f2; /* Light grey for labels */
+        }
+
+        input, select, textarea, button {
+            width: 80%; /* Reduced width for balance */
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input, select, textarea {
+            background-color: #424242; /* Medium grey for input fields */
+            color: #ffffff; /* White text inside inputs */
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #f57c00; /* Orange focus border */
+            box-shadow: 0 0 5px rgba(245, 124, 0, 0.7);
+        }
+
+        /* Button styling */
+        button {
+            background-color: #f57c00; /* Orange button */
+            color: #121212; /* Black text for high contrast */
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff8f00; /* Lighter orange on hover */
+        }
+
+        /* Footer for context */
+        footer {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #bdbdbd; /* Subtle grey for footer text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Request Help</h1>
+        <form action="HelpRequestServlet" method="post">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" required>
+
+            <label for="location">Current Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="helpType">Type of Help Needed:</label>
+            <select id="helpType" name="helpType" required>
+                <option value="medical">Medical Assistance</option>
+                <option value="food">Food and Water</option>
+                <option value="shelter">Shelter</option>
+                <option value="rescue">Rescue</option>
+            </select>
+
+            <label for="details">Additional Details:</label>
+            <textarea id="details" name="details" rows="4" placeholder="Provide additional information if necessary."></textarea>
+
+            <button type="submit">Submit Request</button>
+        </form>
+        <footer>
+            <p>Your safety is our priority. Stay safe and follow instructions from local authorities.</p>
+        </footer>
+    </div>
+</body>
+</html>

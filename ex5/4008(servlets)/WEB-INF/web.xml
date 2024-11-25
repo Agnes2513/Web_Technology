@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                             http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>HelloServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+     <servlet>
+        <servlet-name>HelpRequestServlet</servlet-name>
+        <servlet-class>HelpRequestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelpRequestServlet</servlet-name>
+        <url-pattern>/HelpRequestServlet</url-pattern>
+    </servlet-mapping>
+
+
+    
+    <servlet>
+        <servlet-name>VisitCounterServlet</servlet-name>
+        <servlet-class>VisitCounterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VisitCounterServlet</servlet-name>
+        <url-pattern>/visitCounter</url-pattern>
+    </servlet-mapping>
+
+     <servlet>
+        <servlet-name>AlertServlet</servlet-name>
+        <servlet-class>AlertServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlertServlet</servlet-name>
+        <url-pattern>/alert</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OptInServlet</servlet-name>
+        <servlet-class>OptInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OptInServlet</servlet-name>
+        <url-pattern>/optin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisplayAlertServlet</servlet-name>
+        <servlet-class>DisplayAlertServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayAlertServlet</servlet-name>
+        <url-pattern>/displayalert</url-pattern>
+    </servlet-mapping>
+
+   <servlet>
+    <servlet-name>HelpRequestServlet1</servlet-name>
+    <servlet-class>HelpRequestServlet1</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>HelpRequestServlet1</servlet-name>
+    <url-pattern>/HelpRequestServlet1</url-pattern>
+</servlet-mapping>
+
+
+</web-app>

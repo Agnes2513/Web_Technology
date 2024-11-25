@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Counter</title>
+    <style>
+        /* Centering content, adding border, and styling with grey and orange theme */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+        h2 {
+            color: #ff9800;
+        }
+        label, input {
+            margin-top: 10px;
+        }
+        input[type="submit"] {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Page Counter</h2>
+        <form action="http://localhost:8080/4008/visitCounter" method="GET">
+            <label for="userId">Enter your ID:</label>
+            <input type="text" id="userId" name="userId" required>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
