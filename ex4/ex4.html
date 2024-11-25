@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Registration Form</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #333333, #555555); /* Black and grey gradient background */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            color: #FFA500; /* Orange color for the header */
+            margin-bottom: 20px;
+            font-size: 28px;
+            animation: fadeIn 2s ease-out; /* Animation for header */
+        }
+
+        form {
+            background-color: #2C2C2C; /* Dark grey background for the form */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 500px;
+            margin-top: 10px;
+            border: 2px solid #FFA500; /* Orange border for the form */
+            animation: slideIn 1s ease-out; /* Animation for form */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #FFA500; /* Orange color for labels */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #FFA500; /* Orange border for inputs */
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #444444; /* Dark grey background for inputs */
+            color: white;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition for focus effect */
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="radio"], 
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FFA500; /* Orange background for button */
+            color: #2C2C2C; /* Dark grey text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for hover effect */
+        }
+        .button-container {
+    display: flex;
+    justify-content: space-between; /* Adjust spacing between buttons */
+    gap: 10px; /* Add a gap between buttons */
+    margin-top: 20px; /* Add some margin above the buttons */
+}
+
+.button-container button {
+    flex: 1; /* Make buttons equal in width */
+}
+        button:hover {
+            background-color: #FF8C00; /* Darker orange on hover */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        /* Focus animation */
+        input:focus, 
+        textarea:focus, 
+        select:focus {
+            outline: none;
+            border-color: #FF8C00; /* Darker orange border on focus */
+            box-shadow: 0 0 5px rgba(255, 140, 0, 0.5); /* Subtle shadow on focus */
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const dob = document.getElementById('dob').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const serviceYes = document.querySelector('input[name="service"][value="yes"]').checked;
+            const serviceNo = document.querySelector('input[name="service"][value="no"]').checked;
+            const skills = document.getElementById('skills').value.trim();
+            const interest = document.getElementById('interest').value;
+            const aadhar = document.getElementById('aadhar').value.trim();
+            const proof = document.getElementById('proof').value;
+            const city = document.getElementById('city').value.trim();
+            const state = document.getElementById('state').value;
+            const zip = document.getElementById('zip').value.trim();
+
+            if (name === '') {
+                alert('Name is required.');
+                return false;
+            }
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email === '') {
+                alert('Email is required.');
+                return false;
+            } else if (!email.match(emailPattern)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+            const phonePattern = /^[0-9]{10}$/;
+            if (phone === '') {
+                alert('Phone number is required.');
+                return false;
+            } else if (!phone.match(phonePattern)) {
+                alert('Please enter a valid 10-digit phone number.');
+                return false;
+            }
+            if (dob === '') {
+                alert('Date of Birth is required.');
+                return false;
+            }
+            if (!gender) {
+                alert('Please select your gender.');
+                return false;
+            }
+            if (!serviceYes && !serviceNo) {
+                alert('Please indicate if you have already serviced.');
+                return false;
+            }
+            if (serviceYes && skills === '') {
+                alert('Please describe your previous service experience.');
+                return false;
+            }
+            if (interest === '') {
+                alert('Please select your area of interest.');
+                return false;
+            }
+            const aadharPattern = /^[0-9]{12}$/;
+            if (aadhar === '') {
+                alert('Aadhar number is required.');
+                return false;
+            } else if (!aadhar.match(aadharPattern)) {
+                alert('Please enter a valid 12-digit Aadhar number.');
+                return false;
+            }
+            if (proof === '') {
+                alert('Please upload your ID proof.');
+                return false;
+            }
+            if (city === '') {
+                alert('City is required.');
+                return false;
+            }
+            if (state === '') {
+                alert('Please select a state.');
+                return false;
+            }
+            const zipPattern = /^[0-9]{5}$/;
+            if (zip === '') {
+                alert('Zip code is required.');
+                return false;
+            } else if (!zip.match(zipPattern)) {
+                alert('Please enter a valid 5-digit zip code.');
+                return false;
+            }
+            alert('Form submitted successfully!');
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+<h2>Volunteer Registration Form</h2>
+
+<form id="myForm" onsubmit="return validateForm()">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+    </div>
+
+    <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+    </div>
+
+    <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob">
+    </div>
+
+    <div class="form-group">
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="others"> Others
+    </div>
+
+    <div class="form-group">
+        <label>Already Serviced?:</label>
+        <input type="checkbox" name="service" value="yes"> Yes
+        <input type="checkbox" name="service" value="no"> No
+    </div>
+
+    <div class="form-group">
+        <label for="skills">If yes, describe:</label>
+        <textarea id="skills" name="skills" rows="4" placeholder="Describe your service"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="interest">Area of Interest:</label>
+        <select id="interest" name="interest">
+            <option value="">Select</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="education">Education</option>
+            <option value="environment">Environment</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="aadhar">Aadhar Number:</label>
+        <input type="text" id="aadhar" name="aadhar" placeholder="Enter your Aadhar number">
+    </div>
+
+    <div class="form-group">
+        <label for="proof">Upload ID Proof:</label>
+        <input type="file" id="proof" name="proof">
+    </div>
+
+    <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" placeholder="Enter your city">
+    </div>
+
+    <div class="form-group">
+        <label for="state">State:</label>
+        <select id="state" name="state">
+            <option value="">Select</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="tamilnadu">Tamil Nadu</option>
+            <option value="karnataka">Karnataka</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="zip">Zip Code:</label>
+        <input type="text" id="zip" name="zip" placeholder="Enter your zip code">
+    </div>
+
+    <div class="button-container">
+      <button type="submit">Submit</button>
+      <a href="ex4i.html" style="text-decoration: none;">
+          <button type="button">Click to View(ex-4i)</button>
+      </a>
+  </div>
+</form>
+
+</body>
+</html>
